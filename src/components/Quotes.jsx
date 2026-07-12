@@ -17,6 +17,26 @@ const quotes = [
     text: "Worry about every ant you might crush beneath your feet, and you'll never take another step.",
     author: "Guts",
   },
+  {
+    text: "There is no paradise for you to escape to.",
+    author: "Skull Knight",
+  },
+  {
+    text: "The world is not beautiful, therefore it is.",
+    author: "Flora",
+  },
+  {
+    text: "Strength is earned by those who continue to struggle, even after losing everything.",
+    author: "Guts",
+  },
+  {
+    text: "Dreams give people purpose. Without them, even victory feels empty.",
+    author: "Griffith",
+  },
+  {
+    text: "Those who cling to life will eventually encounter despair, yet they continue to move forward.",
+    author: "Skull Knight",
+  },
 ];
 
 export default function Quotes() {
