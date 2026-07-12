@@ -748,6 +748,8 @@ grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 
 gap:35px;
 
+align-items:stretch;
+
 }
 
 .quote-card{
@@ -761,6 +763,14 @@ border-radius:20px;
 border:1px solid rgba(255,255,255,.08);
 
 transition:.35s;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:space-between;
+
+min-height:340px;
 
 }
 
@@ -778,6 +788,10 @@ font-size:4rem;
 
 color:#8b0000;
 
+line-height:1;
+
+margin-bottom:15px;
+
 }
 
 .quote-card p{
@@ -788,11 +802,19 @@ line-height:1.9;
 
 color:#cfcfcf;
 
+flex-grow:1;
+
+display:flex;
+
+align-items:center;
+
 }
 
 .quote-card h4{
 
 color:white;
+
+margin-top:25px;
 
 }
 
