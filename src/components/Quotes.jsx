@@ -1,41 +1,41 @@
 import { motion } from "framer-motion";
 
 const quotes = [
-  {
-    text: "Is mankind truly free, or merely a puppet dancing on strings held by something beyond this world?",
-    author: "Void",
+{
+    text: "A man doesn't choose the shape of his suffering, only what he becomes because of it.",
+    author: "Guts",
   },
   {
-    text: "Hatred is the refuge of a man who can no longer bear his own sorrow.",
+    text: "Power asks only one question: are you willing to lose everything to keep it?",
+    author: "Griffith",
+  },
+  {
+    text: "I stopped praying the day I realized the sky was empty.",
+    author: "Casca",
+  },
+  {
+    text: "Some men are born to lead. Others are born to be devoured by them.",
+    author: "Zodd",
+  },
+  {
+    text: "The dead don't haunt us. We haunt the memory of who we were before them.",
+    author: "Skull Knight",
+  },
+  {
+    text: "Not every wound bleeds. Some just sit quietly, waiting for the next blade.",
+    author: "Farnese",
+  },
+  {
+    text: "A prayer unanswered is still a prayer. It just costs more the second time.",
     author: "Godot",
   },
   {
-    text: "A dream can breathe life into a man's soul or become the very cage that destroys him.",
-    author: "Griffith",
+    text: "There's a kind of silence that follows a man who has run out of things to lose.",
+    author: "Void",
   },
   {
-    text: "Worry about every ant you might crush beneath your feet, and you'll never take another step.",
-    author: "Guts",
-  },
-  {
-    text: "There is no paradise for you to escape to.",
-    author: "Skull Knight",
-  },
-  {
-    text: "The world is not beautiful, therefore it is.",
-    author: "Flora",
-  },
-  {
-    text: "Strength is earned by those who continue to struggle, even after losing everything.",
-    author: "Guts",
-  },
-  {
-    text: "Dreams give people purpose. Without them, even victory feels empty.",
-    author: "Griffith",
-  },
-  {
-    text: "Those who cling to life will eventually encounter despair, yet they continue to move forward.",
-    author: "Skull Knight",
+    text: "Magic doesn't fix a broken world. It just lets you see the cracks more clearly.",
+    author: "Schierke",
   },
 ];
 
