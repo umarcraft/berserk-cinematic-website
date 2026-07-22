@@ -9,7 +9,7 @@ This isn't just a static landing page. It's built with real 3D rendering (Three.
 </p>
 
 <p align="center">
-  <a href="berserk-cinematic-website.vercel.app"><strong>🔴 Live Demo</strong></a>
+  <a href="https://berserk-cinematic-website.vercel.app"><strong>🔴 Live Demo</strong></a>
   &nbsp;·&nbsp;
   <a href="#getting-started">Getting Started</a>
   &nbsp;·&nbsp;
