@@ -1,7 +1,5 @@
-import { motion } from "framer-motion";
-
-const quotes = [
-{
+export const quotes = [
+    {
     text: "A man doesn't choose the shape of his suffering, only what he becomes because of it.",
     author: "Guts",
   },
@@ -37,45 +35,8 @@ const quotes = [
     text: "Magic doesn't fix a broken world. It just lets you see the cracks more clearly.",
     author: "Schierke",
   },
+  {
+    text: "Even the strongest sword rusts if you stop fighting for what matters.",
+    author: "Judeau",
+  },
 ];
-
-export default function Quotes() {
-  return (
-    <section className="quotes" id="quotes">
-
-      <motion.div
-        className="quotes-header"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-      >
-        <p className="section-subtitle">ECHOES FROM THE ABYSS</p>
-
-        <h2 className="section-title">
-          Quotes That Defined A Legend
-        </h2>
-      </motion.div>
-
-      <div className="quotes-grid">
-        {quotes.map((quote, index) => (
-          <motion.div
-            className="quote-card"
-            key={index}
-            whileHover={{
-              scale: 1.03,
-              y: -8,
-            }}
-          >
-            <span className="quote-mark">"</span>
-
-            <p>{quote.text}</p>
-
-            <h4>— {quote.author}</h4>
-          </motion.div>
-        ))}
-      </div>
-
-    </section>
-  );
-}

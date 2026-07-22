@@ -1,44 +1,167 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700;900&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+@theme {
+  --color-berserk-red: #8b0000;
+  --color-berserk-red-light: #b30000;
+  --color-surface: #080808;
+  --color-surface-dark: #050505;
+  --color-surface-darker: #060606;
+  --font-serif: "Cinzel", serif;
+  --font-sans: "Inter", sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-surface-dark font-sans text-white antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+  }
+
+  button {
+    font-family: inherit;
+  }
+
+  canvas {
+    display: block;
+  }
+
+  @media (pointer: fine) {
+    body.has-custom-cursor {
+      cursor: none;
+    }
+  }
 }
 
-body{
+@layer utilities {
+  .section-container {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
 
-    font-family:'Inter',sans-serif;
+  .section-padding {
+    @apply py-20 sm:py-28 lg:py-32;
+  }
 
-    background:#050505;
+  .glass-card {
+    @apply rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md;
+  }
 
-    color:white;
+  .nav-link {
+    @apply relative rounded-sm text-sm tracking-wide text-white transition-colors duration-300 hover:text-berserk-red-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-berserk-red-light/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black;
+  }
 
-    overflow-x:hidden;
+  .nav-link::after {
+    content: "";
+    @apply absolute -bottom-2 left-0 h-0.5 w-0 bg-berserk-red transition-all duration-300 ease-out;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
+
+  .nav-link.active {
+    @apply text-berserk-red-light;
+  }
+
+  .nav-link.active {
+    @apply text-berserk-red-light;
+    text-shadow:
+      0 0 8px #8b0000,
+      0 0 18px #8b0000;
+  }
 }
 
-h1,h2,h3{
-
-    font-family:'Cinzel',serif;
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.3) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-60vh) translateX(25px) scale(1);
+  }
+  100% {
+    transform: translateY(-130vh) translateX(-30px) scale(1.7) rotate(180deg);
+    opacity: 0;
+  }
 }
 
-button{
-
-    font-family:inherit;
+@keyframes glowPulse {
+  0%,
+  100% {
+    filter: blur(0.3px);
+    opacity: 0.55;
+  }
+  50% {
+    filter: blur(1px);
+    opacity: 1;
+  }
 }
 
-a{
-
-    text-decoration:none;
-
-    color:inherit;
+@keyframes pulseBrand {
+  0%,
+  100% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
-canvas{
+.particle {
+  position: absolute;
+  bottom: -50px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.95) 0%,
+    #ff5b5b 15%,
+    #ff1a1a 40%,
+    #c30000 70%,
+    transparent 100%
+  );
+  opacity: 0.95;
+  filter: blur(0.4px);
+  box-shadow:
+    0 0 12px #ff0000,
+    0 0 25px rgba(255, 0, 0, 0.95),
+    0 0 50px rgba(255, 0, 0, 0.85);
+  animation:
+    floatParticle linear infinite,
+    glowPulse 3.2s ease-in-out infinite;
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+}
 
-    display:block;
+.brand-logo {
+  animation: pulseBrand 2.5s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .particle {
+    animation: none;
+    display: none;
+  }
+
+  .brand-logo {
+    animation: none;
+  }
 }
