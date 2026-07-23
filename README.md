@@ -2,7 +2,7 @@
 
 A dark, immersive React website built as a fan tribute to **Berserk**, Kentaro Miura's legendary manga. It brings the Black Swordsman's world to life through a rotating 3D Berserker Armor, cinematic scroll animations, and a complete journey through Guts's story — from the Brand of Sacrifice to the Eclipse and beyond.
 
-This isn't just a static landing page. It's built with real 3D rendering (Three.js), buttery-smooth scrolling (Lenis), and motion design (Framer Motion) to make the experience feel like part of the story itself.
+This isn't just a static landing page. It's built with real 3D rendering (Three.js), buttery-smooth scrolling (Lenis), and layered motion design (Framer Motion + hand-tuned CSS keyframes) to make the experience feel like part of the story itself — every scroll, hover, and transition was deliberately choreographed, not just bolted on.
 
 <p align="center">
   <img src="src/assets/website-preview.png" alt="Berserk website preview" width="100%" />
@@ -14,8 +14,9 @@ This isn't just a static landing page. It's built with real 3D rendering (Three.
   <a href="#getting-started">Getting Started</a>
   &nbsp;·&nbsp;
   <a href="#tech-stack">Tech Stack</a>
+  &nbsp;·&nbsp;
+  <a href="#animation--motion-design">Animation & Motion Design</a>
 </p>
-
 
 ---
 
@@ -32,6 +33,48 @@ This isn't just a static landing page. It's built with real 3D rendering (Three.
 
 ---
 
+## 🎬 Animation & Motion Design
+
+Every moving part on this site was built intentionally, layering three different animation systems where each one is best suited — Framer Motion for orchestrated UI transitions, Three.js for real 3D motion, and native CSS keyframes for lightweight ambient effects that don't need JavaScript overhead.
+
+### Entrance & scroll-triggered reveals (Framer Motion)
+- **Hero** — headline and CTA slide in from the left, the 3D armor viewport slides in from the right, staggered on page load for a cinematic "reveal" feel.
+- **Story** — left and right content blocks fade and slide in from opposite edges as they enter the viewport, each firing once (`whileInView`, `viewport={{ once: true }}`) so the animation never feels repetitive on re-scroll.
+- **Timeline** — each event card fades up into place with an index-based stagger delay, so entries cascade in one after another instead of popping in all at once.
+- **Quotes** — quote cards fade and rise into view with a rotating stagger pattern across the grid, giving the section a natural, non-mechanical rhythm.
+- **Gallery** — images scale up from 96% to 100% while fading in, staggered per item, so the grid feels like it's assembling itself as you scroll.
+
+### Navigation motion (Framer Motion)
+- The navbar slides down from off-screen on initial load.
+- The mobile hamburger icon rotates and cross-fades between its open/closed states.
+- The mobile menu expands and collapses its height with a smooth `AnimatePresence` transition — no layout jump, no flash of unstyled content.
+- Scroll-spy tracks scroll position in real time to highlight the active section link as you move through the page.
+
+### Loading experience (Framer Motion)
+- A dedicated loading screen fades the title and tagline in with a slight vertical offset, then animates a progress bar from 0% to 100% width before smoothly cross-fading out into the site.
+
+### Ambient & idle motion (CSS keyframes)
+- **Ember particles** — ~30 individually randomized particles drift upward across the hero, each with its own size, horizontal drift, timing offset, and duration, fading and rotating as they rise for a living, embers-in-the-dark effect.
+- **Glow pulse** — soft breathing glow/blur effect used on accent elements.
+- **Brand pulse** — a subtle scale-and-opacity pulse used on the loading screen's mark, echoing the Brand of Sacrifice.
+- **Scroll indicator** — a bouncing arrow loop that gently nudges users to keep scrolling.
+
+### Real 3D motion (Three.js / React Three Fiber)
+- The Berserker Armor model auto-rotates continuously on its Y-axis via a `useFrame` render loop for a constant, cinematic idle turn.
+- `OrbitControls` lets users manually drag-rotate the model to inspect it from any angle (zoom and pan are disabled to keep the framing intentional).
+
+### Smooth scrolling (Lenis)
+- Native scroll is replaced with Lenis-powered inertia scrolling, so every scroll on desktop and mobile feels weighted and smooth instead of the browser's default instant jump.
+
+### Micro-interactions (CSS transitions)
+- Buttons lift and glow on hover with a soft shadow bloom, plus a light-sweep shimmer that slides across on hover.
+- The custom cursor smoothly tracks the mouse in real time and resizes on interactive elements — automatically disabled on touch devices, since it wouldn't make sense there.
+
+### Accessibility built in
+- Every animation respects `prefers-reduced-motion`. Users with that setting enabled get a static, fully usable site — particles, pulses, and smooth-scroll are all automatically disabled rather than forced on everyone.
+
+---
+
 ## 🖥️ Tech Stack
 
 | Category | Technology |
@@ -39,7 +82,7 @@ This isn't just a static landing page. It's built with real 3D rendering (Three.
 | Framework | [React 19](https://react.dev) |
 | Build Tool | [Vite](https://vitejs.dev) |
 | Styling | [Tailwind CSS v4](https://tailwindcss.com) |
-| Animation | [Framer Motion](https://www.framer.com/motion/) |
+| Animation | [Framer Motion](https://www.framer.com/motion/) + custom CSS keyframes |
 | 3D Rendering | [Three.js](https://threejs.org) via [React Three Fiber](https://docs.pmnd.rs/react-three-fiber) & [Drei](https://github.com/pmndrs/drei) |
 | Smooth Scrolling | [Lenis](https://lenis.darkroom.engineering/) |
 | Icons | [React Icons](https://react-icons.github.io/react-icons/) |
