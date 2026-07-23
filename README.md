@@ -1,8 +1,8 @@
 # ⚔️ BERSERK — A Cinematic Tribute Website
 
-A dark, immersive React website built as a fan tribute to **Berserk**, Kentaro Miura's legendary manga. It brings the Black Swordsman's world to life through a rotating 3D Berserker Armor, cinematic scroll animations, and a complete journey through Guts's story — from the Brand of Sacrifice to the Eclipse and beyond.
+A dark, immersive React website built as a fan tribute to **Berserk**, Kentaro Miura's legendary manga. It brings the Black Swordsman's world to life through a rotating 3D Berserker Armor, cinematic scroll animations, and a complete journey through Guts's story from the Brand of Sacrifice to the Eclipse and beyond.
 
-This isn't just a static landing page. It's built with real 3D rendering (Three.js), buttery-smooth scrolling (Lenis), and layered motion design (Framer Motion + hand-tuned CSS keyframes) to make the experience feel like part of the story itself — every scroll, hover, and transition was deliberately choreographed, not just bolted on.
+This isn't just a static landing page. It's built with real 3D rendering (Three.js), buttery-smooth scrolling (Lenis), and layered motion design (Framer Motion + hand-tuned CSS keyframes) to make the experience feel like part of the story itself every scroll, hover, and transition was deliberately choreographed, not just bolted on.
 
 <p align="center">
   <img src="src/assets/website-preview.png" alt="Berserk website preview" width="100%" />
