@@ -15,7 +15,25 @@ const Navbar = () => {
     };
   }, [menuOpen]);
 
-  const closeMenu = () => setMenuOpen(false);
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+
+    // Close the mobile menu and release the scroll lock immediately —
+    // otherwise body's overflow:hidden (from the open menu) is still
+    // active when the browser tries to jump to the section, so the
+    // scroll silently fails on mobile.
+    setMenuOpen(false);
+    document.body.style.overflow = "";
+
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    // Wait a frame so the menu-close layout change settles before
+    // measuring the target's position.
+    requestAnimationFrame(() => {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  };
 
   return (
     <motion.nav
@@ -32,7 +50,7 @@ const Navbar = () => {
         <a
           href="#home"
           className="font-serif text-lg font-bold tracking-[0.35em] sm:text-xl"
-          onClick={closeMenu}
+          onClick={(e) => handleNavClick(e, "#home")}
         >
           <span className="text-berserk-red-light">B</span>ERSERK
         </a>
@@ -42,6 +60,7 @@ const Navbar = () => {
             <li key={link.id}>
               <a
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className={`nav-link ${activeSection === link.id ? "active" : ""}`}
               >
                 {link.label}
@@ -85,7 +104,7 @@ const Navbar = () => {
                 <li key={link.id}>
                   <a
                     href={link.href}
-                    onClick={closeMenu}
+                    onClick={(e) => handleNavClick(e, link.href)}
                     className={`block rounded-lg px-4 py-3 text-sm tracking-wide transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-berserk-red-light/70 ${
                       activeSection === link.id
                         ? "bg-berserk-red/20 text-berserk-red-light"

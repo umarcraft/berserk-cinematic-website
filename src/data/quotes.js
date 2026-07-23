@@ -23,20 +23,5 @@ export const quotes = [
     text: "Not every wound bleeds. Some just sit quietly, waiting for the next blade.",
     author: "Farnese",
   },
-  {
-    text: "A prayer unanswered is still a prayer. It just costs more the second time.",
-    author: "Godot",
-  },
-  {
-    text: "There's a kind of silence that follows a man who has run out of things to lose.",
-    author: "Void",
-  },
-  {
-    text: "Magic doesn't fix a broken world. It just lets you see the cracks more clearly.",
-    author: "Schierke",
-  },
-  {
-    text: "Even the strongest sword rusts if you stop fighting for what matters.",
-    author: "Judeau",
-  },
+
 ];
